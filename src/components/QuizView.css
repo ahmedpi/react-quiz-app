@@ -22,3 +22,11 @@
     row-gap: 15px;
     width: 70%;
 }
+
+.answer > button:focus{
+    background-color: #DDB822 !important;
+}
+
+.next-button{
+    padding-top: 20px;
+}

@@ -23,3 +23,7 @@ button{
   font-weight: bold;
   width: 100%;
 }
+
+button:disabled{
+  background-color: grey
+}

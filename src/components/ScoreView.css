@@ -3,5 +3,12 @@ div{
     flex-direction: column;
     font-size: 28px;
     font-weight: lighter;
+}
+
+.questiom .answer .score{
     align-items: center;
+}
+
+.next-button{
+    flex-direction:row-reverse;
 }

@@ -50,18 +50,25 @@ function App() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [isQuizOver, setIsQuizOver]= useState(false);
   const [score, setScore] = useState(0);
+  const [isAnswered, setIsAnswered] = useState(false);
 
   const handleAnswerClick = (isCorrect) =>{
+    setIsAnswered(true);
     //check score
     if(isCorrect){
       setScore(score + 1);
     }
+
+  }
+
+  const handleNextClick = () =>{
     const next = currentQuestion + 1;
     if(next <questions.length) {
       setCurrentQuestion(next);
     }else{
       setIsQuizOver(true);
     }
+    setIsAnswered(false);
   }
 
   const handleResetClick = () =>{
@@ -69,13 +76,14 @@ function App() {
     setIsQuizOver(false);
     setScore(0);
   }
+  
 
   return (
     <div className="App">
       {
       isQuizOver ? <ScoreView handleResetClick={handleResetClick} score={score}/>: <QuizView 
         questions={questions} currentQuestion = {currentQuestion} 
-        handleAnswerClick={handleAnswerClick}
+        handleAnswerClick={handleAnswerClick} handleNextClick={handleNextClick} isAnswered={isAnswered}
       />}
     </div>
   );
